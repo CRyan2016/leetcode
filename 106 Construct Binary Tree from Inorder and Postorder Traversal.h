@@ -37,6 +37,7 @@ public:
                 inorder.pop_back();
                 if (inorder.size() == 0)break;
                 if (stn.size() && inorder.back() == stn.top()->val) continue;
+                // 没有右子树时stn.size==0,这里是到达根节点，处理根的左子树
                 p->left = new TreeNode(postorder.back());
                 postorder.pop_back();
                 stn.push(p->left);
