@@ -7,7 +7,7 @@
 
 #include <vector>
 #include <string>
-#include <>
+#include <cmath>
 
 using namespace std;
 
@@ -15,14 +15,12 @@ class Solution {
 public:
 	string reverseStr(string s, int k) {
 		int size = s.size();
-		if(k > size) return s;
-		for (int i = 0; i <size ; ) {
-			for(int m = i,n = i+k-1;m < n;++m,--n){
+		for (int i = 0; i < size;i += 2 * k) {
+			for (int m = i, n = min(i + k - 1, size - 1); m < n; ++m, --n) {
 				char temp = s[m];
 				s[m] = s[n];
 				s[n] = temp;
 			}
-			i += 2*k;
 		}
 		return s;
 	}
